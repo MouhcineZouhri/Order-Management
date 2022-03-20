@@ -7,6 +7,7 @@ import com.example.ordermanagement.Entity.Role;
 import com.example.ordermanagement.Repository.AppUserRepository;
 import com.example.ordermanagement.Repository.RoleRepository;
 import com.example.ordermanagement.Service.ProductService;
+import com.stripe.Stripe;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -29,8 +30,12 @@ public class OrderManagementApplication {
     }
 
 
+    @Bean
+    public void apiKey(){
+        Stripe.apiKey="sk_test_51KZZrjJjVyAJDIxpbRNJgrzHRXkOX0Xa8CJwbTilxlGumGdLeQ4MZKZodUGDI56xyFjuRKwQoRebMySORJm2xrD400eZXuC2RG";
+    }
 
-   // @Bean
+   @Bean
     public CommandLineRunner runner(RoleRepository roleRepository
             , AppUserRepository appUserRepository, PasswordEncoder passwordEncoder
             , ProductService productService

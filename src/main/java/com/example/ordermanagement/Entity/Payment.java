@@ -26,4 +26,7 @@ public class Payment {
 
     @ManyToOne
     private AppUser user;
+
+    @OneToOne
+    private Order order;
 }

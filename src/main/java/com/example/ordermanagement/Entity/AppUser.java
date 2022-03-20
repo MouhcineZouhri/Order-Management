@@ -78,4 +78,9 @@ public class AppUser implements UserDetails {
         order.setUser(this);
     }
 
+    public void addPayment(Payment payment){
+        payments.add(payment);
+        payment.setUser(this);
+    }
+
 }

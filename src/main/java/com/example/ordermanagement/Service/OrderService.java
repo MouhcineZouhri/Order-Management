@@ -1,11 +1,11 @@
 package com.example.ordermanagement.Service;
 
-import com.example.ordermanagement.Entity.Order;
 
-public interface orderService {
-    public void payOrder(String username , Order order);
+import com.example.ordermanagement.Dtos.OrderResponse;
+import com.example.ordermanagement.Dtos.PaymentRequestDTO;
 
-    public void cancelOrder(String username , Order order);
+public interface OrderService {
+    public OrderResponse payOrder(String username , PaymentRequestDTO paymentRequestDTO);
 
-    public void shipOrder(String username, Order order);
+    public OrderResponse shipOrder(Long orderID);
 }

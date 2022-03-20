@@ -47,15 +47,16 @@ public class productServiceImpl implements ProductService {
 
         PriceTo price = new PriceTo();
         price.setPrice(productRequestDTO.getPrice());
+        price.setLast(true);
         price.setDateFrom(new Date());
+        PriceTo savedPrice = priceRepository.save(price);
 
-        PriceTo dbPrice = priceRepository.save(price);
+        product.addPrice(savedPrice);
 
-        dbProduct.getPrices().add(dbPrice);
+        Product savedProduct = productRepository.save(dbProduct);
 
-        Product save = productRepository.save(dbProduct);
 
-        return productMapper.productToProductResponseDTO(save);
+        return productMapper.productToProductResponseDTO(savedProduct);
     }
 
     @Override
@@ -83,7 +84,7 @@ public class productServiceImpl implements ProductService {
     public ProductResponseDTO changePrice(Long id, BigDecimal price) {
         Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(id));
 
-        PriceTo lastPrice = priceRepository.findPriceToByProductAndLast(product, false);
+        PriceTo lastPrice = priceRepository.findPriceToByProductAndLast(product, true);
 
         if(lastPrice !=null) {
             lastPrice.setLast(false);
@@ -94,8 +95,8 @@ public class productServiceImpl implements ProductService {
         priceTo.setPrice(price);
         priceTo.setDateFrom(new Date());
         priceTo.setLast(true);
-
         PriceTo savedPrice = priceRepository.save(priceTo);
+
         product.addPrice(savedPrice);
 
         Product savedProduct = productRepository.save(product);
