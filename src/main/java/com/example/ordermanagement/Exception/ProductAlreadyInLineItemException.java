@@ -1,4 +1,4 @@
-package com.example.ordermanagement.Controller;
+package com.example.ordermanagement.Exception;
 
 public class ProductAlreadyInLineItemException extends RuntimeException{
 

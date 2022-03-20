@@ -1,6 +1,6 @@
 package com.example.ordermanagement.Service.Impl;
 
-import com.example.ordermanagement.Controller.ProductAlreadyInLineItemException;
+import com.example.ordermanagement.Exception.ProductAlreadyInLineItemException;
 import com.example.ordermanagement.Dtos.CartItemResponseDTO;
 import com.example.ordermanagement.Dtos.LineItemRequestDTO;
 import com.example.ordermanagement.Dtos.LineItemResponseDTO;

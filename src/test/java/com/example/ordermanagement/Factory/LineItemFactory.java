@@ -1,6 +1,6 @@
 package com.example.ordermanagement.Factory;
 
-import com.example.ordermanagement.Controller.ProductAlreadyInLineItemException;
+import com.example.ordermanagement.Exception.ProductAlreadyInLineItemException;
 import com.example.ordermanagement.Entity.*;
 import com.example.ordermanagement.Exception.OrderNotFoundException;
 import com.example.ordermanagement.Exception.ProductNotFoundException;
